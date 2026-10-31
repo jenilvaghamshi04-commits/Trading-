@@ -47,6 +47,8 @@ class Handler(BaseHTTPRequestHandler):
                                      'modules': len(CATALOG)}), 'application/json', head)
         elif path == '/':
             self.respond(200, (ROOT / 'index.html').read_text(), 'text/html', head)
+        elif path in ('/scanner', '/scanner/'):
+            self.respond(200, (ROOT / 'scanner.html').read_text(), 'text/html', head)
         elif path == '/api/modules':
             self.respond(200, json.dumps(list(CATALOG.values())), 'application/json', head)
         elif path.startswith('/api/modules/') and path.rsplit('/', 1)[-1] in CATALOG:

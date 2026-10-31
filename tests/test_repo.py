@@ -41,7 +41,7 @@ class Repo(unittest.TestCase):
     def test_root_contains_toolkit_and_web_deployment(self):
         root = sorted(d for d in os.listdir(ROOT)
                       if not d.startswith(".git") and d != "__pycache__")
-        web = ["app.py", "index.html", "requirements.txt", "Procfile", "DEPLOYMENT.md"]
+        web = ["app.py", "index.html", "scanner.html", "requirements.txt", "Procfile", "DEPLOYMENT.md"]
         self.assertEqual(root, sorted([".claude-plugin", "LICENSE", "README.md", "tests"] + SKILLS + web))
 
     def test_frontmatter_name_and_description(self):
